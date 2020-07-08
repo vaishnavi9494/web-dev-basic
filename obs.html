@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>EARTH OBSERVATORY SATELLITE</title>
+        <link rel="stylesheet" type="text/css" href="stylesheet.css">
+       <script>
+        function imageZoom(imgID, resultID) {
+            var img, lens, result, cx, cy;
+            img = document.getElementById(imgID);
+            result = document.getElementById(resultID);
+            /* Create lens: */
+            lens = document.createElement("DIV");
+            lens.setAttribute("class", "img-zoom-lens");
+            /* Insert lens: */
+            img.parentElement.insertBefore(lens, img);
+            /* Calculate the ratio between result DIV and lens: */
+            cx = result.offsetWidth / lens.offsetWidth;
+            cy = result.offsetHeight / lens.offsetHeight;
+            /* Set background properties for the result DIV */
+            result.style.backgroundImage = "url('" + img.src + "')";
+            result.style.backgroundSize = (img.width * cx) + "px " + (img.height * cy) + "px";
+            /* Execute a function when someone moves the cursor over the image, or the lens: */
+            lens.addEventListener("mousemove", moveLens);
+            img.addEventListener("mousemove", moveLens);
+            /* And also for touch screens: */
+            lens.addEventListener("touchmove", moveLens);
+            img.addEventListener("touchmove", moveLens);
+            function moveLens(e) {
+              var pos, x, y;
+              /* Prevent any other actions that may occur when moving over the image */
+              e.preventDefault();
+              /* Get the cursor's x and y positions: */
+              pos = getCursorPos(e);
+              /* Calculate the position of the lens: */
+              x = pos.x - (lens.offsetWidth / 2);
+              y = pos.y - (lens.offsetHeight / 2);
+              /* Prevent the lens from being positioned outside the image: */
+              if (x > img.width - lens.offsetWidth) {x = img.width - lens.offsetWidth;}
+              if (x < 0) {x = 0;}
+              if (y > img.height - lens.offsetHeight) {y = img.height - lens.offsetHeight;}
+              if (y < 0) {y = 0;}
+              /* Set the position of the lens: */
+              lens.style.left = x + "px";
+              lens.style.top = y + "px";
+              /* Display what the lens "sees": */
+              result.style.backgroundPosition = "-" + (x * cx) + "px -" + (y * cy) + "px";
+            }
+            function getCursorPos(e) {
+              var a, x = 0, y = 0;
+              e = e || window.event;
+              /* Get the x and y positions of the image: */
+              a = img.getBoundingClientRect();
+              /* Calculate the cursor's x and y coordinates, relative to the image: */
+              x = e.pageX - a.left;
+              y = e.pageY - a.top;
+              /* Consider any page scrolling: */
+              x = x - window.pageXOffset;
+              y = y - window.pageYOffset;
+              return {x : x, y : y};
+            }
+          }
+        </script>
+    </head>
+    <body>
+        <div class="topnav">
+            <a href="index.html">Home</a>
+            <a href="astro.html">Astronomical Satellite</a>
+            <a class="active" href="obs.html">Earth Observatory Satellite</a>
+            <a href="nav.html">Navigation Satellite</a>
+            <a href="weat.html">Weather Satellite</a>
+          </div>
+          <h2 id="basictitle">EARTH OBSERVATORY SATELLITE</h2>
+          <div class="img-zoom-container">
+          <img id="myimage" src="https://scx2.b-cdn.net/gfx/news/hires/2011/nasaprepares.jpg" alt="earth observatory satellite" title="earth observatory satellite" style="margin-left: 400px;width: 500px;height: 300px;">
+          <div id="myresult" class="img-zoom-result"></div>
+          </div>
+          <script>
+              imageZoom("myimage", "myresult");
+          </script>
+        <div>
+            <p id="title"> BASIC DEFINITION</p>
+            <p id="rest">
+            Earth observation satellites are satellites intended for non-military uses such as environmental monitoring, meteorology, map making etc. Earth observation satellite is a satellite used or designed for Earth observation from orbit, for purposes such as environmental monitoring, meteorology, map making etc. 
+            </p>
+        </div>
+        <div>
+            <p id="title">HISTORY</p>
+            <p id="rest">
+            Herman Potočnik explored the idea of using orbiting spacecraft for detailed peaceful and military observation of the ground in his 1928 book, The Problem of Space Travel. He described how the special conditions of space could be useful for scientific experiments. 
+
+            </p>
+        </div>
+        <div>
+            <p id="title">SELECTION OF ORBITS</p>
+            <p id="rest">
+            Most Earth observation satellites carry instruments that should be operated at a relatively low altitude. Altitudes below 500-600 kilometers are in general avoided, though, because of the significant air-drag at such low altitudes making frequent orbit reboost maneuvres necessary. To get (nearly) global coverage with a low orbit it must be a polar orbit or nearly so. A low orbit will have an orbital period of roughly 100 minutes and the Earth will rotate around its polar axis with about 25 deg between successive orbits, with the result that the ground track is shifted towards west with these 25 deg in longitude. Most are in Sun-synchronous orbits. Spacecraft carrying instruments for which an altitude of 36000 km is suitable sometimes use a geostationary orbit. Such an orbit allows uninterrupted coverage of more than 1/3 of the Earth.
+
+            </p>
+        </div>
+        <div>
+            <p id="title"> APPLICATIONS</p>
+            <p>    
+            <ul id="rest">  
+<li>Agriculture and Soil- Information on crop statistics is required for planning and decision making purposes, such as, distribution and storage of food grains, Govt. policies, pricing, procurement and food security and so on. Ministry effectively uses contemporary techniques of satellite remote sensing in such decision making. Satellites are used to study factors  such as, crop area estimation, crop yield & production estimation, crop condition, deriving basic soil information, cropping system studies, experimental crop insurance, etc.</li>
+<li>Renewable energy usage- Satellite remote sensing provides synoptic view, covering larger areas continuously for longer periods. Winds, solar and wave energy resources can be assessed with the help of Earth Observation data. Assessment of solar energy from earth observation satellites can be carried out. </li>
+<li>Mining- Remote sensing as a tool is being used for major exploration programme by various stake holder Ministries such as Ministry of Mines, Ministry of Petroleum and Natural Gas, Department of Atomic Energy and Ministry of Steel.</li>
+<li>Governance- Space technology derived inputs along with geospatial technologies and field information are being adopted in an integrated way by various Central Ministries and State Governments in planning, periodic monitoring, mid-course correction and evaluation of developmental activities.</li>
+<li>Ocean science- In order to understand the complex nature of the ocean, the space platform is being used for observations of ocean surface and retrieval of various parameters. The data from these satellites is used to generate information on Photo-synthetically Active Radiation, ocean primary production, aerosol optical depth, total suspended sediments, suspended sediment concentration, ocean surface winds, ocean altimetry and ocean state forecast.</li>
+ 
+            </ul>
+            </p>
+        </div>
+    </body>
+</html>

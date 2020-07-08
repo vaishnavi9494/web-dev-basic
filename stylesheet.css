@@ -1,0 +1,79 @@
+.topnav {
+   
+    overflow: hidden;
+  }
+  
+  
+  .topnav a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 25px;
+  }
+  
+ 
+  .topnav a:hover {
+     color: white;
+     font-size: 30px;
+  }
+  
+  
+  .topnav a.active {
+    color: white;
+    font-weight: 900;
+  }
+
+  *
+  {
+background-image: url(https://scx2.b-cdn.net/gfx/news/hires/2019/4-space.jpg);
+ color: white;
+  }
+
+  #basictitle
+  {
+    font-size: 40px;
+    text-align: center;
+  }
+  
+  #title
+  {
+    font-size: 25px;
+  
+  }
+
+  .upp
+  {
+    text-transform: uppercase;
+  }
+
+  .img-zoom-container {
+    position: relative;
+  }
+  
+  .img-zoom-lens {
+    position: absolute;
+    border: 1px solid #d4d4d4;
+    width: 100px;
+    height: 100px;
+  }
+  
+  .img-zoom-result {
+    border: 1px solid #d4d4d4;
+    width: 500px;
+    height: 300px;
+    margin-left: 400px;
+  }
+
+  .table
+  {
+    border: 1px solid white;
+    width: 70%;
+    padding: 15px;
+  }
+   #rest
+   {
+     font:20px "Comic Sans MS";
+   }
+  
